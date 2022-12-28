@@ -10,7 +10,7 @@ Rules for seating
 Current Time Space & Complecity: O(n^2)
 */
 
-function generateSeatAudience(arr, passengers) {
+function generateSeating(arr, passengers) {
   let unassigned = passengers;
   let assigned = 0;
 
@@ -121,10 +121,17 @@ function generateSeatAudience(arr, passengers) {
   return availableSeats;
 }
 
+/**
+ Input to the program will be
+- a 2D array that represents the rows and columns [ [3,4], [4,5], [2,3], [3,4] ]
+- Number of passengers wai:ng in queue
+*/
+
 const arr = [[3,2], [4,3], [2,3], [3,4]];
 const passengers = 30;
-let result = generateSeatAudience(arr, passengers);
+let result = generateSeating(arr, passengers);
 
+// Preview The result:
 console.log('\n==================\n');
 for (let group = 0; group < arr.length; group++) {
   for (let row = 0; row < arr[group][0]; row++) {
