@@ -1,7 +1,13 @@
 /**
+ * Airplane Seating Algorithm
+ * v1
+ * By. Ref.si
+ */
+
+/**
 Rules for seating
 • Always seat passengers startng from the front row to back,
-  star:ng from the le= to the right
+  startng from the left to the right
 • Fill aisle seats first followed by window seats followed by center
   seats (any order in center seats
 */
@@ -9,19 +15,22 @@ Rules for seating
 /*
 Current Time Space & Complecity: O(n^2)
 */
-
 function generateSeating(arr, passengers) {
-  let unassigned = passengers;
-  let assigned = 0;
+  let unassigned = passengers; // passenger not with seats
+  let assigned = 0; // assinged seats to passenger
 
-  let availableSeats = []
-  let aisleSeats = [];
-  let middleSeats = [];
-  let windowSeats = [];
+  let availableSeats = [] // all avaiable seats in airplane
+  let aisleSeats = []; // asile seats
+  let middleSeats = []; // middle seats
+  let windowSeats = []; // window seats
 
-  let execute = 0;
+  let execute = 0; // help to count total iteration, just for debug purpose 
 
+  /**
+   * Generate seats Group the seats
+   */
   for (let group = 0; group < arr.length; group++) {
+    // ini variable for seats for every group
     aisleSeats[group] = [];
     middleSeats[group] = [];
     windowSeats[group] = [];
@@ -60,6 +69,9 @@ function generateSeating(arr, passengers) {
   }
   // console.log(`~ ${execute} total iteration`);
 
+  /**
+   * Assign Passenger to seats, order by queue (aisle -> window -> middle)
+   */
   for (let row = 0; row < arr.length; row++)
   {
     aisleSeats.forEach((obj) => {
@@ -126,12 +138,11 @@ function generateSeating(arr, passengers) {
 - a 2D array that represents the rows and columns [ [3,4], [4,5], [2,3], [3,4] ]
 - Number of passengers wai:ng in queue
 */
-
 const arr = [[3,2], [4,3], [2,3], [3,4]];
 const passengers = 30;
 let result = generateSeating(arr, passengers);
 
-// Preview The result:
+// Display the result:
 console.log('\n==================\n');
 for (let group = 0; group < arr.length; group++) {
   for (let row = 0; row < arr[group][0]; row++) {
