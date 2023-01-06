@@ -1,4 +1,3 @@
-
 // Javascript code to find last digit of a^b
 
 // Function to find b % a
@@ -40,21 +39,18 @@ function LastDigit(a, b)
 	// % 10. if exponent is not divisible
 	// by 4 that means last digit will be
 	// pow(a, b%4) % 10
-	exp = (Modulo(4, b) == 0) ? 4 :
-							Modulo(4, b);
+	let exp = (Modulo(4, b) === 0) ? 4 :
+  Modulo(4, b);
 
 	// Find last digit in 'a' and compute
 	// its exponent
-	res = Math.pow(a[len_a - 1] - '0', exp);
+	let res = Math.pow(a[len_a - 1] - '0', exp);
 
 	// Return last digit of result
 	return res % 10;
 }
 
-// Driver program to run test case
-let a = "117";
-let b = "3";
-document.write(LastDigit(a, b));
-
-// This code is contributed by _saurabh_jaiswal
-
+// Run test case
+let a = "19";
+let b = "8";
+console.log(LastDigit(a, b)); // Result: 1
